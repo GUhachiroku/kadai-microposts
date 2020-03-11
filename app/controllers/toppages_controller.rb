@@ -8,11 +8,11 @@ class ToppagesController < ApplicationController
   
   def create
     @micropost = current_user.microposts.build(micropost_params)
-    if @micropsot.save
+    if @micropost.save
       flash[:success] = "メッセージを投稿しました。"
       redirect_to root_url
     else
-      @micropsots = current_user.feed_micropsots.order(id: :desc).page(params[:page])
+      @microposts = current_user.feed_microposts.order(id: :desc).page(params[:page])
       flash.now[:danger] = "メッセージの投稿に失敗しました。"
       render "toppages/index"
     end
