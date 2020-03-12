@@ -40,9 +40,8 @@ class User < ApplicationRecord
   end
   
   def unfavorite(other_micropost)
-    binding.pry
-    favorites = self.favorites.find_by(micropost_id: other_micropost.id)
-    favorites.destroy if favorite
+    favorite = self.favorites.find_by(micropost_id: other_micropost.id)
+    favorite.destroy if favorite
   end
   
   def favoriting?(other_micropost)
