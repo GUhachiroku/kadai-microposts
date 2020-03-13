@@ -13,7 +13,6 @@ class User < ApplicationRecord
   has_many :followers, through: :reverses_of_relationship, source: :user   #自分をフォローしているuserを取得
   has_many :favorites
   has_many :favoritings, through: :favorites, source: :micropost
-  has_many :likes
   
   
   def follow(other_user)
